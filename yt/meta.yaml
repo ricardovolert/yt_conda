@@ -30,7 +30,6 @@ requirements:
     - matplotlib
     - ipython
     - ipython-notebook
-    - ipython-qtconsole
     - tornado
     - pyzmq
     - jinja2
@@ -39,8 +38,7 @@ requirements:
 
 test:
   commands:
-    - yt --help
-    - hg --help
+    - yt -h
   imports:
     - yt
     - yt.utilities.hdf5_light_reader

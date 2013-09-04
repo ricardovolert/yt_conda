@@ -3,9 +3,7 @@ package:
   version: 2.5.5
 
 source:
-  fn: yt-2.5.5.tar.gz
-  url: https://pypi.python.org/packages/source/y/yt/yt-2.5.5.tar.gz
-  md5: 1b497061d1b7ee0859caec1c8a1ef2e2
+  hg_url: http://bitbucket.org/yt_analysis/yt
 
 build:
   entry_points:
@@ -40,7 +38,6 @@ requirements:
 test:
   commands:
     - yt --help
-    - hg --help
   imports:
     - yt
     - yt.utilities.hdf5_light_reader

@@ -1,6 +1,6 @@
 package:
   name: yt
-  version: 2.5.5
+  version: 3.3.dev0
 
 source:
   hg_url: http://bitbucket.org/yt_analysis/yt
@@ -13,34 +13,26 @@ requirements:
   build:
     - python
     - numpy
-    - cython 0.19*
-    - libpng
-    - freetype
-    - hdf5
-    - distribute
+    - cython 0.22*
+    - setuptools 
+    - libpython # [win]
+    - mingw # [win]
   run:
     - python
     - numpy
-    - libpng
-    - freetype
-    - hdf5
     - h5py
     - matplotlib
     - ipython
-    - ipython-notebook
-    - tornado
-    - pyzmq
-    - jinja2
-    - pygments
-    - sphinx
+    - sympy
 
 test:
+  requires:
+    - nose
   commands:
     - yt -h
   imports:
     - yt
-    - yt.utilities.hdf5_light_reader
 
 about:
   home: http://yt-project.org/
-  license: GNU General Public License version 3 (GPL)
+  license: BSD

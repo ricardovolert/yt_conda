@@ -1,0 +1,23 @@
+package:
+  name: pyembree
+  version: 0.0
+
+source:
+  git_url: https://github.com/scopatz/pyembree.git
+  git_rev: master
+
+requirements:
+   build:
+    - embree
+    - python
+    - cython
+    - numpy
+    - setuptools
+   run:
+    - embree
+    - python
+    - numpy
+
+about:
+  home: https://github.com/scopatz/pyembree
+  license: BSD 2 Clause

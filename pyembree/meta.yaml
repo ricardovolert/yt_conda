@@ -12,6 +12,8 @@ requirements:
     - python
     - cython
     - numpy
+    - libpython # [win]
+    - mingw # [win]
     - setuptools
    run:
     - embree

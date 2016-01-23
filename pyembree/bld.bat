@@ -1,3 +1,7 @@
+set INCLUDE=%LIBRARY_INC%
+set LIBPATH=%LIBRARY_LIB%
+set LIB=%LIBRARY_LIB%
+
 "%PYTHON%" setup.py build --compiler=mingw32 install
 if errorlevel 1 exit 1
 

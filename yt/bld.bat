@@ -5,7 +5,7 @@ set LIB=%LIBRARY_LIB%
 
 copy %LIBRARY_LIB%\*.dll %LIBRARY_LIB%\..\..\libs\
 
-awk -F "\"" "/__version__/ {print gensub(\"-\". \"_\", 1, $2)>__conda_version__.txt }" yt\__init__.py
+awk -F "\"" "/__version__/ {print gensub(\"-\", \"_\", 1, $2)>__conda_version__.txt }" yt\__init__.py
 
 hg id -r "sort(tag(), date) and branch(stable)" -i > step1
 awk -v dq="\"" "{print \"hg log -r \" dq $0 \": and branch(yt)\"dq > step2.bat }" step1

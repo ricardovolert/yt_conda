@@ -4,6 +4,8 @@ package:
 source:
   hg_url: https://bitbucket.org/yt_analysis/yt
   hg_tag: yt
+  patches:
+     - disable_hg.patch
 
 build:
   entry_points:

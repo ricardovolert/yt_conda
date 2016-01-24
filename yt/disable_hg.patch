@@ -1,0 +1,11 @@
+diff -r 8717f785d8fd setup.py
+--- a/setup.py	Fri Jan 15 12:34:49 2016 -0600
++++ b/setup.py	Sun Jan 24 13:46:36 2016 -0600
+@@ -114,6 +114,7 @@
+     http://jasonfharris.com/blog/2010/05/versioning-your-application-with-the-mercurial-changeset-hash/
+ 
+     """
++    return None
+     import subprocess
+     import re
+     get_changeset = subprocess.Popen('hg identify -b -i',

@@ -17,6 +17,7 @@ requirements:
     - setuptools 
     - libpython # [win]
     - mingw # [win]
+    - gawk # [win]
     - pyembree
   run:
     - python

@@ -1,9 +1,11 @@
-set CPATH=%LIBRARY_INC%
-set LIBRARY_PATH=%LIBRARY_LIB%
-set LIBPATH=%LIBRARY_LIB%
-set LIB=%LIBRARY_LIB%
+set CPATH=%LIBRARY_INC%;%CPATH%
+set LIBRARY_PATH=%LIBRARY_LIB%;%LIBRARY_PATH%
+set LIBPATH=%LIBRARY_LIB%;%LIBPATH%
+set LIB=%LIBRARY_LIB%;%LIB%
 
 copy %LIBRARY_LIB%\*.dll %LIBRARY_LIB%\..\..\libs\
+
+echo %LIBRARY_PREFIX% > "embree.cfg"
 
 awk -F "\"" "/__version__/ {print gensub(\"-\", \"_\", 1, $2)>__conda_version__.txt }" yt\__init__.py
 

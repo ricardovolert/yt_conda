@@ -9,7 +9,7 @@ awk -F "\"" "/__version__/ {print gensub(\"-\", \"_\", 1, $2)>__conda_version__.
 
 hg id -r "sort(tag(), date) and branch(stable)" -i > step1
 awk -v dq="\"" "{print \"hg log -r \" dq $0 \": and branch(yt)\"dq > step2.bat }" step1
-step2.bat > step3
+call "step2.bat" > step3
 awk "/changeset:/ {count++} END {print count}" step3 > __conda_buildnum__.txt 
 
 "%PYTHON%" setup.py build --compiler=mingw32 install

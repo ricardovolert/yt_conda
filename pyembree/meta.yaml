@@ -8,6 +8,7 @@ source:
 
 requirements:
    build:
+    - git
     - embree
     - python
     - cython

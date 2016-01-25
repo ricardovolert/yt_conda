@@ -32,13 +32,13 @@ environment:
       CONDA_NPY: "110"
 
 init:
-    - ps: Start-FileDownload 'http://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi' C:\VCForPython27.msi; echo "Done"
-    - cmd: msiexec /i C:\VCForPython27.msi /quiet /qn
-    - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%" 
-    - "%CMD_IN_ENV% conda info -a"
-    - "%CMD_IN_ENV% conda list"
+  #- ps: Start-FileDownload 'http://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi' C:\VCForPython27.msi; echo "Done"
+  #- cmd: msiexec /i C:\VCForPython27.msi /quiet /qn
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%" 
 
 install:
+  - "%CMD_IN_ENV% conda info -a"
+  - "%CMD_IN_ENV% conda list"
   - "%CMD_IN_ENV% conda build yt --quiet"
 
 build: false

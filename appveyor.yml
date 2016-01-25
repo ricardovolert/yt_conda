@@ -19,13 +19,13 @@ environment:
       CONDA_PY: "27"
       CONDA_NPY: "110"
 
-    - PYTHON: "C:\\Miniconda3"
+    - PYTHON: "C:\\Miniconda35"
       PYTHON_VERSION: "3.5"
       PYTHON_ARCH: "32"
       CONDA_PY: "35"
       CONDA_NPY: "110"
 
-    - PYTHON: "C:\\Miniconda3_x64"
+    - PYTHON: "C:\\Miniconda35-x64"
       PYTHON_VERSION: "3.5"
       PYTHON_ARCH: "64"
       CONDA_PY: "35"
@@ -34,9 +34,9 @@ environment:
 init:
     - ps: Start-FileDownload 'http://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi' C:\VCForPython27.msi; echo "Done"
     - cmd: msiexec /i C:\VCForPython27.msi /quiet /qn
-    - set PATH="%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-    - conda info -a
-    - conda list
+    - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%" 
+    - "%CMD_IN_ENV% conda info -a"
+    - "%CMD_IN_ENV% conda list"
 
 install:
   - "%CMD_IN_ENV% conda build yt --quiet"

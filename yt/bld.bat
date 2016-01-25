@@ -14,9 +14,6 @@ awk -v dq="\"" "{print \"hg log -r \" dq $0 \": and branch(yt)\"dq > step2.bat }
 call "step2.bat" > step3
 awk "/changeset:/ {count++} END {print count}" step3 > __conda_buildnum__.txt 
 
-"%PYTHON%" setup.py build_ext --compiler=msvc
-if errorlevel 1 exit 1
-
 "%PYTHON%" setup.py install
 if errorlevel 1 exit 1
 

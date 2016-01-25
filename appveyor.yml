@@ -7,53 +7,43 @@ environment:
     CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\continuous-integration\\appveyor\\run_with_env.cmd"
 
   matrix:
-    - PYTHON: "C:\\Python27_32"
+    - PYTHON: "C:\\Miniconda"
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "32"
       CONDA_PY: "27"
       CONDA_NPY: "110"
 
-    - PYTHON: "C:\\Python27_64"
+    - PYTHON: "C:\\Miniconda-x64"
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "64"
       CONDA_PY: "27"
       CONDA_NPY: "110"
 
-    - PYTHON: "C:\\Python35_32"
+    - PYTHON: "C:\\Miniconda3"
       PYTHON_VERSION: "3.5"
       PYTHON_ARCH: "32"
       CONDA_PY: "35"
       CONDA_NPY: "110"
 
-    - PYTHON: "C:\\Python35_64"
+    - PYTHON: "C:\\Miniconda3_x64"
       PYTHON_VERSION: "3.5"
       PYTHON_ARCH: "64"
       CONDA_PY: "35"
       CONDA_NPY: "110"
+
+init:
+    - ps: Start-FileDownload 'http://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi' C:\VCForPython27.msi; echo "Done"
+    - cmd: msiexec /i C:\VCForPython27.msi /quiet /qn
+    - set PATH="%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+    - conda info -a
+    - conda list
 
 install:
-  - powershell .\\continuous-integration\\appveyor\\install.ps1
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - cmd: rmdir C:\cygwin /s /q
-
-build: false
-build_script:
   - "%CMD_IN_ENV% conda build yt --quiet"
 
+build: false
+
 test_script:
-  # Build and test the package. This appears(?) to sporadically fail due to a 
-  # bug in conda-build on 32 bit python.
-  # https://github.com/conda/conda-build/issues/152
-  #
-  # Note also that our setup.py script, which is called by conda-build, writes
-  # a __conda_version__.txt file, so the version number on the binary package
-  # is set dynamically. This unfortunately mean that conda build --output
-  # doesn't really work.
-  #
-  # - "%CMD_IN_ENV% conda build yt --quiet"
-  # Move the conda package into the current directory, to register it
-  # as an "artifact" for Appveyor. cmd.exe does't have good globbing, so
-  # we'll use a simple python script.
   - python continuous-integration\move-conda-package.py conda-recipe
 
 artifacts:

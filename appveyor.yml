@@ -39,7 +39,7 @@ init:
 install:
   - "%CMD_IN_ENV% conda info -a"
   - "%CMD_IN_ENV% conda list"
-  - "%CMD_IN_EVN% conda install conda-build git mercurial"
+  - "%CMD_IN_EVN% conda install -q -y conda-build git mercurial"
   - "%CMD_IN_ENV% conda build yt --quiet --python %PYTHON_VERSION%"
 
 build: false

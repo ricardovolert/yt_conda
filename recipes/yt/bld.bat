@@ -5,7 +5,7 @@
 
 copy "%LIBRARY_LIB%"\*.dll "%LIBRARY_LIB%"\..\..\libs\
 
-set EMBREE_DIR="%LIBRARY_PREFIX%"
+set EMBREE_DIR=%LIBRARY_PREFIX%
 
 awk -F "\"" "/__version__/ {print gensub(\"-\", \"_\", 1, $2)>__conda_version__.txt }" yt\__init__.py
 

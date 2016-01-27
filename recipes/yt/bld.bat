@@ -14,7 +14,7 @@ awk -v dq="\"" "{print \"hg log -r \" dq $0 \": and branch(yt)\"dq > step2.bat }
 call "step2.bat" > step3
 awk "/changeset:/ {count++} END {print count}" step3 > __conda_buildnum__.txt 
 
-"%PYTHON%" setup.py install
+"%PYTHON%" setup.py install --single-version-externally-managed --record=record.txt
 if errorlevel 1 exit 1
 
 :: Add more build steps here, if they are necessary.

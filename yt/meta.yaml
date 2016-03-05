@@ -33,6 +33,7 @@ requirements:
     - ipython
     - pyembree
     - netcdf4
+    - libgcc # [linux]
 
 test:
   requires:

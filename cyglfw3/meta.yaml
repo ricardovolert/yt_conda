@@ -1,0 +1,30 @@
+package:
+    name: cyglfw3
+    version: 3.1.0.2
+
+source:
+    fn: cyglfw3-3.1.0.2.tar.gz
+    url: https://pypi.python.org/packages/source/c/cyglfw3/cyglfw3-3.1.0.2.tar.gz
+    md5: 73d9872dd61ff565794eef28a05fd8e9
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - python
+        - setuptools
+        - cython
+        - glfw3
+
+    run:
+        - python
+        - glfw3
+
+test:
+    imports:
+        - cyglfw3
+
+about:
+    home: https://github.com/adamlwgriffiths/cyglfw3 
+    license: MIT

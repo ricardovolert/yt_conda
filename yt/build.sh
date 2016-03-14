@@ -1,6 +1,13 @@
 #!/bin/bash
 
 echo "$PREFIX" > embree.cfg
+
+if [ "$(uname)" == "Darwin" ]; then
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+  export LDFLAGS="-Wl,-headerpad_max_install_names"
+fi
+
 $PYTHON setup.py install
 
 cp scripts/* $PREFIX/bin/

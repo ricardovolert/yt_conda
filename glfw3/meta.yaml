@@ -10,6 +10,9 @@ source:
 requirements:
   build:
     - cmake
+    - gcc # [unix]
+  run:
+    - libgcc # [unix]
 
 about:
   home: http://www.glfw.org/

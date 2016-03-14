@@ -9,7 +9,7 @@ source:
 
 requirements:
   build:
-    - cmake [win]
+    - cmake
 
 about:
   home: http://www.glfw.org/

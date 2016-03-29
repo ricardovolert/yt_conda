@@ -10,13 +10,7 @@ source:
 requirements:
   build:
     - cmake
-    - gcc # [unix]
-    - mesa
     
-  run:
-    - libgcc # [unix]
-    - mesa
-
 about:
   home: http://www.glfw.org/
   license: zlib/libpng

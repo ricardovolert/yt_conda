@@ -1,0 +1,10 @@
+package:
+  name: rockstar
+  version: "1.0.0"
+
+source:
+    hg_url: https://bitbucket.org/MatthewTurk/rockstar
+
+about:
+  license: GPLv3
+  summary: Halo finder
